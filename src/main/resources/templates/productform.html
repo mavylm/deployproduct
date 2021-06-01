@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Title Icon -->
+    <link rel="icon" href="img/Logo_blue_Take5.png">
+    <title>Take5</title>
+  </head>
+
+  <body>
+      <div th:insert="fragments/navbar.html :: navbar"></div>
+      <div th:insert="fragments/navbar.html :: contactModal"></div>
+
+      <!-- Start of Add Products -->
+      <div class="container-fluid p-5 text-center">
+        <h1>Add Products</h1>
+      </div>
+
+      <!-- Start of Add Products Container -->
+      <div class="container-fluid px-5 mb-5 d-flex justify-content-center">
+        <div class="row">
+
+            <!-- Start of Left Field -->
+            <div class="col-md-5 d-flex justify-content-end">
+              <!-- Start of Add Products Form -->
+              <form id="newItemForm" enctype="multipart/form-data">
+                <div class="form-photo-upload d-flex">
+                  <label for="imagefile">
+                    <input type="file" id="imagefile" name="imagefile" style="display:none;"/>
+                    <img src="./img/upload.png" class="w-100"/>
+                  </label>
+                </div>
+            </div>
+            <!-- End of Left Field-->
+
+            <!-- Start of Right Fields -->
+            <div class="col-md-5">
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="newItemNameInput">Product Name*</label>
+                  <input type="text" class="form-control" id="newItemNameInput" name="newItemNameInput" required>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="newItemPrice">Product Price ($)*</label>
+                  <input type="number" class="form-control" id="newItemPrice" name="newItemPrice" step=".01" min="0" placeholder="$" required>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="newItemCategory">Product Category*</label>
+                  <select class="form-control" id="newItemCategory" name="newItemCategory" required>
+                    <option value="" disabled selected>Please Select</option>
+                    <option value="eBooks">eBooks</option>
+                    <option value="Stationery">Stationery</option>
+                    <option value="Assessment Materials">Assessment Materials</option>
+                    <option value="Online Courses">Online Courses</option>
+                    <option value="Educational Toys">Educational Toys</option>
+                    <option value="Miscellaneous">Miscellaneous</option>
+                  </select>
+                  <div id="categoryErrorMsg"></div>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="newItemQuantity">Quantity</label>
+                  <input type="number" class="form-control" id="newItemQuantity" name="newItemQuantity" min="1" max ="99" required>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label for="newItemDescription">Product Description</label>
+                  <textarea class="form-control" id="newItemDescription" name="newItemDescription" placeholder="Enter description here" rows="2" required></textarea>
+                </div>
+              </div>
+              
+              <div class="form-group col-md-12 form-check">
+                <input type="checkbox" id="agreeTerms" name="agreeTerms" class="form-check-input" required>
+                <label for="agreeTerms">I agree to the <a href="https://www.google.com/search?q=google+your+own+terms+and+conditions&oq=google+your+own+terms+and+conditions&aqs=chrome..69i57j69i64.5748j0j7&sourceid=chrome&ie=UTF-8" target="_blank">Terms and Conditions</a>*</label>
+                <div id="termsErrorMsg"></div>
+              </div>
+              
+              <div class="col-md-12 mt-2 text-right">
+                <button type="submit" class="listB">List Product</button>
+              </div>
+
+              </form>
+              <!-- End of Add Products Form -->
+
+            </div>
+            <!-- End of Right Fields-->
+
+        </div>
+        <!-- End of Row -->
+
+      </div>
+      <!-- End of Add Products Container -->
+
+      <!-- Modal for Added Product -->
+      <div class="modal fade" tabindex="-1" role="dialog" id="addedSuccessfully">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body text-center">
+              <p>You have added your product successfully!</p>
+              <button type="button" class="listB" data-dismiss="modal">Ok</button>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+      <!-- End of Modal for Added Product -->
+
+      <!-- Footer -->
+      <div th:insert="fragments/footer.html :: footer"></div>
+
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+      <!-- Add Stylesheet -->
+      <link rel="stylesheet" href="css/style.css">
+      <!-- jQuery and Bootstrap Bundle (includes Popper) -->
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+      <!-- Add FontAwesome Icons -->
+      <script src="https://kit.fontawesome.com/5704215aa3.js" crossorigin="anonymous"></script>
+      <!-- Add JS -->
+      <script src="js/productController.js"></script>
+      <script src="js/productForm.js"></script>
+
+  </body>
+</html>

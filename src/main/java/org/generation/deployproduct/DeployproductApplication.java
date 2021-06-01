@@ -12,11 +12,3 @@ public class DeployproductApplication {
 	}
 
 }
-
-@RestController
-class HelloController {
-	@GetMapping("/")
-	String hello() {
-		return "Hello World";
-	}
-}
