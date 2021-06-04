@@ -215,7 +215,7 @@ h4 {
 
 .image-side, .social-side {
     position: absolute;
-    width: 100%;
+    width: auto;
     height: 100%;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
@@ -223,7 +223,7 @@ h4 {
 
 .image-side img {
     height: 100%;
-    width: 100%;
+    width: auto;
 }
 
 .social-side {
@@ -232,7 +232,7 @@ h4 {
     font-size: small;
     transform: rotateY(180deg);
     padding: 10px;
-    width: 100%;
+    width: auto;
     height: 100%;
     overflow-y: hidden;
 }
