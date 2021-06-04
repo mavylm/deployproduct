@@ -9,9 +9,7 @@ const createHTMLList = (index, imageURL, name, price) =>
         <p class="productPrice">$${price}</p>
         </div>
     </div></a>
-</div>
-
-`;
+</div>`;
 
 
 function displayProductDetails(item) {
@@ -109,27 +107,34 @@ class ProductsController {
     // Display the fetched data from API
     render() {
         var productHTMLList = [];
+        this._categoryItems = [];
 
-        for (var i=0; i<this._items.length; i++)
-        {
-            const item = this._items[i];            //assign the individual item to the variable
+        for (var i=0; i<this._items.length; i++) {
 
-            const productHTML = createHTMLList(i, item.oImageUrl, item.oName, item.oPrice);
+            const item = this._items[i]; //assign the individual item to the variable
+            const productHTML = createHTMLList(item.oId, item.oImageUrl, item.oName, item.oPrice);
 
-            productHTMLList.push(productHTML);
+            var inputCat = document.getElementById("inputType").value;
+
+            if (inputCat == "All") {
+                this._categoryItems.push(item);
+                productHTMLList.push(productHTML);
+            } else if (inputCat == item.oCategory) {
+                this._categoryItems.push(item);
+                productHTMLList.push(productHTML);
+            }
         }
 
-        //Join all the elements/items in my productHTMLList array into one string, and separate by a break
+        //Join all the elements/items in my productHTMLList into one string and separate by a break
         const pHTML = productHTMLList.join('\n');
-        document.querySelector('#row').innerHTML = pHTML;
+        document.querySelector('#productRow').innerHTML = pHTML;
 
-
-        //addEventListener - click
-        for (var i=0; i<this._items.length; i++)
-        {
-            const item = this._items[i];
-            document.getElementById(i).addEventListener("click", function() { displayProductDetails(item);} );
+        //addEventListener - click event
+        for (var i=0; i<this._categoryItems.length; i++) {
+            const item = this._categoryItems[i];
+            document.getElementById(item.oId).addEventListener("click", function() {
+                displayProductDetails(item);
+            });
         }
-    }
-
+    }   // End of render()
 }   //End of ProductsController class

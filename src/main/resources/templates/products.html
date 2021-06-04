@@ -25,22 +25,21 @@
       <div class="container-fluid productPageCards pb-5 pl-5 pr-5">
       
       <form class="row justify-content-end px-3">
-        <div class="form-group categoryBar">
-          <label for="selectCategory"></label>
-          <select class="form-control" id="selectCategory">
-            <option>All Categories</option>
-            <option value="1">eBooks</option>
-            <option value="2">Stationery</option>
-            <option value="3">Assessment Materials</option>
-            <option value="4">Online Courses</option>
-            <option value="5">Educational Toys</option>
-            <option value="6">Miscellaneous</option>
+        <div class="form-group">
+          <select id="inputType" class="form-control" onchange="loadData();">
+            <option>All</option>
+            <option>eBooks</option>
+            <option>Stationery</option>
+            <option>Assessment Materials</option>
+            <option>Online Courses</option>
+            <option>Educational Toys</option>
+            <option>Miscellaneous</option>
           </select>
         </div>
       </form>
         
       <!-- Start of Row -->
-        <div class="row" id="row">
+        <div class="row" id="productRow">
         </div>
       <!-- End of Row -->
 
