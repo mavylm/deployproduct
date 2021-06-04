@@ -53,7 +53,8 @@ class ProductsController {
         formData.append('quantity', quantity);
         formData.append('imagefile', imagePath);
 
-        fetch('http://localhost:8080/item/add', {
+        // fetch('http://localhost:8080/item/add', {
+           fetch('https://take5by4stack.herokuapp.com/item/add', {
             method: 'POST', // or 'PUT;
             body: formData
             })
@@ -75,7 +76,8 @@ class ProductsController {
         var productController = this;     // productController refers to the class object
         productController._items = [];
 
-        fetch('http://127.0.0.1:8080/item/all')
+        //fetch('http://127.0.0.1:8080/item/all')
+        fetch('https://take5by4stack.herokuapp.com/item/all')
             .then((resp) => resp.json())
             .then(function(data) {
                 console.log("2. receive data")
