@@ -51,8 +51,8 @@ class ProductsController {
         formData.append('quantity', quantity);
         formData.append('imagefile', imagePath);
 
-        // fetch('http://localhost:8080/item/add', {
-           fetch('https://take5by4stack.herokuapp.com/item/add', {
+         //fetch('http://localhost:8080/item/add', {
+        fetch('https://take5by4stack.herokuapp.com/item/add', {
             method: 'POST', // or 'PUT;
             body: formData
             })
