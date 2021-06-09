@@ -28,8 +28,8 @@
               <form id="newItemForm" enctype="multipart/form-data">
                 <div class="form-photo-upload d-flex">
                   <label for="imagefile">
-                    <input type="file" id="imagefile" name="imagefile" style="display:none;"/>
-                    <img src="./img/upload.png" class="w-100"/>
+                    <input type="file" id="imagefile" name="imagefile" style="display:none;" onchange="previewFile(this)"/>
+                    <img id="previewImg" src="./img/upload.png" class="w-100"/>
                   </label>
                 </div>
             </div>

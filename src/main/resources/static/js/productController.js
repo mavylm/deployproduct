@@ -2,14 +2,16 @@
 
 const createHTMLList = (index, imageURL, name, price) =>
 `<div class="col-lg-4 col-sm-6">
-    <a id="${index}" href="#" data-toggle="modal" data-target="#productModal"><div class="productCard">
-        <img src=${imageURL} class="card-img-top">
-        <div class="productInfo text-center">
-        <b>${name}</b>
-        <p class="productPrice">$${price}</p>
-        </div>
-    </div></a>
-</div>`;
+     <a id="${index}" href="#" data-toggle="modal" data-target="#productModal">
+     <div class="embed-responsive embed-responsive-16by9">
+     <img src=${imageURL} class="card-img-top embed-responsive-item">
+     </div>
+     <div class="text-center">
+     ${name}
+     <p class="productPrice">$${price}</p>
+     </div>
+     </a>
+ </div>`;
 
 
 function displayProductDetails(item) {
@@ -51,7 +53,7 @@ class ProductsController {
         formData.append('quantity', quantity);
         formData.append('imagefile', imagePath);
 
-         //fetch('http://localhost:8080/item/add', {
+        //fetch('http://localhost:8080/item/add', {
         fetch('https://take5by4stack.herokuapp.com/item/add', {
             method: 'POST', // or 'PUT;
             body: formData
